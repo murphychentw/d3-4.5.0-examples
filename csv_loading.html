@@ -1,34 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<title>D3: Loading data from a CSV file</title>
-		<script type="text/javascript" src="d3.js"></script>
-	</head>
-	<body>
-		<script type="text/javascript">
+  <head>
+    <meta charset="utf-8">
+    <title>D3: Loading data from a CSV file</title>
+    <script type="text/javascript" src="d3.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
 
       var dataset;
 
-			//For converting strings to Dates
-			var parseTime = d3.timeParse("%Y/%m/%d");
+      //For converting strings to Dates
+      var parseTime = d3.timeParse("%Y/%m/%d");
 
-	 	  var rowConverter = function(d) {
-		      return {
-		          Date: parseTime(d.Date),
-		          Amount: parseFloat(d.Amount)
-		      };
-		  }
+       var rowConverter = function(d) {
+          return {
+              Date: parseTime(d.Date),
+              Amount: parseFloat(d.Amount)
+          };
+      }
 
-			d3.csv("coffee.csv", rowConverter, function(error, data) {
-				if (error) {
-					console.log(error);
-				} else {
-				  console.log(data);
-				}
-				dataset = data;
-			});
+      d3.csv("coffee.csv", rowConverter, function(error, data) {
+        if (error) {
+          console.log(error);
+        } else {
+          console.log(data);
+        }
+        dataset = data;
+      });
 
-		</script>
-	</body>
+    </script>
+  </body>
 </html>
